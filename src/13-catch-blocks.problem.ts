@@ -1,3 +1,4 @@
+import { ExecException } from "child_process";
 import { expect, it } from "vitest";
 
 const tryCatchDemo = (state: "fail" | "succeed") => {
@@ -6,7 +7,7 @@ const tryCatchDemo = (state: "fail" | "succeed") => {
       throw new Error("Failure!");
     }
   } catch (e) {
-    return e.message;
+    return (e as Error).message;
   }
 };
 

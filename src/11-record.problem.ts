@@ -1,7 +1,13 @@
 import { expect, it } from "vitest";
 
+// Index Signatures
+// Sometimes you don’t know all the names of a type’s properties ahead of time, but you do know the shape of the values.
+
+// In those cases you can use an index signature to describe the types of possible values
 const createCache = () => {
-  const cache = {};
+  const cache: {
+    [id: string]: string;
+  } = {};
 
   const add = (id: string, value: string) => {
     cache[id] = value;
